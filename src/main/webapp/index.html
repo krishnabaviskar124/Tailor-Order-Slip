@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailor Order Slip Entry</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Tailor Order Slip Entry</h2>
+
+    <form action="result.jsp" method="post" onsubmit="return validateForm();">
+        <!-- Customer Name -->
+        <div class="form-group">
+            <label for="customer">Customer Name <span class="required-star">*</span></label>
+            <input type="text" id="customer" name="customer" class="form-control" 
+                   maxlength="40" required placeholder="Enter customer name (max 40 chars)">
+        </div>
+
+        <!-- Garment Dropdown -->
+        <div class="form-group">
+            <label for="garment">Garment <span class="required-star">*</span></label>
+            <select id="garment" name="garment" class="form-control" required>
+                <option value="">-- Select Garment --</option>
+                <option value="Shirt">Shirt</option>
+                <option value="Trouser">Trouser</option>
+                <option value="Blouse">Blouse</option>
+                <option value="Kurta">Kurta</option>
+            </select>
+        </div>
+
+        <!-- Delivery Date -->
+        <div class="form-group">
+            <label for="deliveryDate">Delivery Date <span class="required-star">*</span></label>
+            <input type="date" id="deliveryDate" name="delivery_date" class="form-control" required>
+        </div>
+
+        <!-- Measurements / Notes -->
+        <div class="form-group">
+            <label for="notes">Measurements / Notes</label>
+            <textarea id="notes" name="notes" class="form-control" rows="4" 
+                      placeholder="Enter measurements or special instructions"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <button type="submit" class="btn">Save Order</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Automatically set the minimum delivery date to today's local date
+    window.addEventListener('DOMContentLoaded', function () {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        const minDate = yyyy + '-' + mm + '-' + dd;
+
+        const dateInput = document.getElementById('deliveryDate');
+        if (dateInput) {
+            dateInput.min = minDate;
+        }
+    });
+
+    // Validate form before submission
+    function validateForm() {
+        const dateInput = document.getElementById('deliveryDate');
+
+        if (!dateInput.value) {
+            alert('Please select a delivery date.');
+            dateInput.focus();
+            return false;
+        }
+
+        // Parse selected date and compare with today (resetting time to 00:00:00)
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const parts = dateInput.value.split('-');
+        const selectedDate = new Date(parts[0], parts[1] - 1, parts[2]);
+        selectedDate.setHours(0, 0, 0, 0);
+
+        // Reject any past delivery date
+        if (selectedDate < today) {
+            alert('Delivery date cannot be in the past! Please choose today or a future date.');
+            dateInput.focus();
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+</body>
+</html>
+

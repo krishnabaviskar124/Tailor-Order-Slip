@@ -1,0 +1,221 @@
+/* =========================================================
+   Tailor Order Slip - Practical Assessment Stylesheet
+   Theme: Simple, clean light-grey with classic blue accent
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    color: #2c3e50;
+    line-height: 1.6;
+    padding: 30px 15px;
+}
+
+/* Centered Card Containers for Form and Results */
+.container {
+    max-width: 560px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border: 1px solid #dcdfe6;
+    border-top: 4px solid #1a73e8;
+    border-radius: 6px;
+    padding: 28px 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.container-wide {
+    max-width: 860px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border: 1px solid #dcdfe6;
+    border-top: 4px solid #1a73e8;
+    border-radius: 6px;
+    padding: 28px 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Page Headings */
+h2 {
+    color: #1a365d;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 22px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Form Groups and Field Labels */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.form-group .required-star {
+    color: #d93025;
+    margin-left: 2px;
+}
+
+/* Input Fields, Dropdown, and Textarea */
+.form-control {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #1e293b;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #1a73e8;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 85px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #1a73e8;
+    border: 1px solid #1557b0;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #1557b0;
+}
+
+.btn:active {
+    background-color: #0d47a1;
+}
+
+.btn-secondary {
+    background-color: #5f6368;
+    border-color: #494c50;
+}
+
+.btn-secondary:hover {
+    background-color: #494c50;
+}
+
+/* Alert Notification Boxes */
+.alert {
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.alert-success {
+    background-color: #e6f4ea;
+    color: #137333;
+    border: 1px solid #ceead6;
+}
+
+.alert-error {
+    background-color: #fce8e6;
+    color: #c5221f;
+    border: 1px solid #fad2cf;
+}
+
+/* Results Table Styling */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 14px;
+    margin-bottom: 22px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+}
+
+table {
+    width: 100%;
+    min-width: 600px; /* Keeps table columns readable on smaller screens */
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+}
+
+table th {
+    background-color: #1a365d;
+    color: #ffffff;
+    padding: 10px 14px;
+    font-weight: 600;
+    border-bottom: 2px solid #0f2444;
+}
+
+table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+    vertical-align: top;
+    word-break: break-word;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+table tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+.empty-message {
+    text-align: center;
+    color: #64748b;
+    padding: 24px;
+    font-style: italic;
+}
+
+/* Action Links Container */
+.actions {
+    margin-top: 20px;
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 640px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    .container,
+    .container-wide {
+        padding: 20px 16px;
+        margin: 10px auto;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

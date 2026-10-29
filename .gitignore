@@ -1,0 +1,13 @@
+# Maven build output
+target/
+
+# IDE and editor settings
+.idea/
+.vscode/
+*.iml
+
+# Environment configuration and secrets
+.env
+.env.*
+!.env.example
+
